@@ -1,3 +1,5 @@
+package connect4;
+
 // extended from tictactoe game code
 public class Constants {
     // Valid board size
