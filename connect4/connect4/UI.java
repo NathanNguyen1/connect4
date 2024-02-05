@@ -24,7 +24,7 @@ public class UI {
     }
     
     public boolean isLegalMove(State state, int col) {
-        return 1 <= col && col <= Constants.BOARD_SIZEX && state.getBoardCell(col -1) == Constants.BLANK;
+        return 1 <= col && col <= Constants.BOARD_SIZEX && state.getBoardCell(col, -1) == Constants.BLANK;
     }
     
     public String promptForName(String player) {
@@ -58,6 +58,19 @@ public class UI {
             return true;
         } else {
             return false;
+        }
+    }
+    
+    public void printWelcome() {
+        System.out.println(Constants.TITLE);
+    }
+    
+    public void printBoard(State state) {
+        System.out.println(Constants.DIVIDER_STRING);
+        for (int row = 0; row < Constants.BOARD_SIZEX; row++) {
+            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 0)), getXOrO(state.getBoardCell(row, 1)), getXOrO(state.getBoardCell(row, 2)));
+            System.out.println();
+            System.out.println(Constants.DIVIDER_STRING);
         }
     }
 }
