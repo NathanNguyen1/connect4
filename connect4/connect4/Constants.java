@@ -32,6 +32,7 @@ public class Constants {
     public static final String TITLE = "Thanks for playing Connect 4";
     public static final String GET_COL_MOVE = "Player %s (%s): Enter the column for your next move --> ";
     public static final String INVALID_COL = "Your column must be 1 to 7";
+    public static final String INVALID_MOVE_ERROR = "Column %d is not a valid move. Please try again";
     public static final String PRINT_MOVE = "Player %s (%s) move to %d";
     public static final String WINNER = "%s - %s is the winner!";
     public static final String TIE_GAME = "It's a tie game!";
