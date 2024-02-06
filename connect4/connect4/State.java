@@ -1,5 +1,5 @@
 //Extended from tictactoe
-package connect4;
+package connect4
 /**
  * Tic-Tac-Toe state variables.
  */
@@ -25,8 +25,8 @@ public class State
             total = getBoardCell(row, 2) + getBoardCell(row,3) + getBoardCell(row,4) + getBoardCell(row, 5);
             if (total == -4 || total == 4) return true;
         }
-        for (int row=3; row<Constants.BOARD_SIZEX; row++) {
-            total = getBoardCell(row, 3) + getBoardCell(row,4) + getBoardCell(row,5) + getBoardCell(row, 6);
+        for (int col=3; col<Constants.BOARD_SIZEX; col++) {
+            total = getBoardCell(3, col) + getBoardCell(5, col) + getBoardCell(5, col) + getBoardCell(6, col);
             if (total == -4 || total == 4) return true;
         }
         for (int col=0; col<Constants.BOARD_SIZEY; col++) {
@@ -41,13 +41,56 @@ public class State
             total = getBoardCell(2, col) + getBoardCell(3,col) + getBoardCell(4, col) + getBoardCell(5,col);
             if (total == -4 || total == 4) return true;
         }
-        total = getBoardCell(0, 0) + getBoardCell(1,1) + getBoardCell(2, 2) + getBoardCell(3,3);
+        total = getBoardCell(0,0) + getBoardCell(1,1) + getBoardCell(2,2) + getBoardCell(3,3);
         if (total == -4 || total == 4) return true;
-        total = getBoardCell(0, 1) + getBoardCell(1,2) + getBoardCell(2, 3) + getBoardCell(3, 4);
-        if (total == -3 || total == 3) return true;
-        total = getBoardCell(0, 2) + getBoardCell(1,3) + getBoardCell(2, 4) + getBoardCell(3, 5);
-        if (total == -3 || total == 3) return true;
+        total = getBoardCell(0,1) + getBoardCell(1,2) + getBoardCell(2,3) + getBoardCell(3,4);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(0,2) + getBoardCell(1,3) + getBoardCell(2,4) + getBoardCell(3,5);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(0,3) + getBoardCell(1,4) + getBoardCell(2,5) + getBoardCell(3,6);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(0,6) + getBoardCell(1,5) + getBoardCell(2,4) + getBoardCell(3,3);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(0,5) + getBoardCell(1,4) + getBoardCell(2,3) + getBoardCell(3,2);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(0,4) + getBoardCell(1,3) + getBoardCell(2,2) + getBoardCell(3,1);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(0,3) + getBoardCell(1,2) + getBoardCell(2,1) + getBoardCell(3,0);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,0) + getBoardCell(2,1) + getBoardCell(3,2) + getBoardCell(4,3);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,1) + getBoardCell(2,2) + getBoardCell(3,3) + getBoardCell(4,4);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,2) + getBoardCell(2,3) + getBoardCell(3,4) + getBoardCell(4,5);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,3) + getBoardCell(2,4) + getBoardCell(3,5) + getBoardCell(4,6);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,6) + getBoardCell(2,5) + getBoardCell(3,4) + getBoardCell(4,3);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,5) + getBoardCell(2,4) + getBoardCell(3,3) + getBoardCell(4,2);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,4) + getBoardCell(2,3) + getBoardCell(3,2) + getBoardCell(4,1);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(1,3) + getBoardCell(2,2) + getBoardCell(3,1) + getBoardCell(4,0);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,0) + getBoardCell(3,1) + getBoardCell(4,2) + getBoardCell(5,3);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,1) + getBoardCell(3,2) + getBoardCell(4,3) + getBoardCell(5,4);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,2) + getBoardCell(3,3) + getBoardCell(4,4) + getBoardCell(5,5);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,3) + getBoardCell(3,4) + getBoardCell(4,5) + getBoardCell(5,6);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,6) + getBoardCell(3,5) + getBoardCell(4,4) + getBoardCell(5,3);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,5) + getBoardCell(3,4) + getBoardCell(4,3) + getBoardCell(5,2);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,4) + getBoardCell(3,3) + getBoardCell(4,2) + getBoardCell(5,1);
+        if (total == -4 || total == 4) return true;
+        total = getBoardCell(2,3) + getBoardCell(3,2) + getBoardCell(4,1) + getBoardCell(5,0);
+        if (total == -4 || total == 4) return true;
         return false;
+        
     }
 
     public boolean isTie() {
@@ -100,7 +143,7 @@ public class State
     public void setBoardCell(int row, int col, int value) {
         this.board[row][col] = value;
     }
-
+    
     public void reset(){
         gameState = Constants.STANDBY;
         board = new int[Constants.BOARD_SIZEX][Constants.BOARD_SIZEY];
