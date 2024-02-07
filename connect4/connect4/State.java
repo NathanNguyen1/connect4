@@ -1,5 +1,6 @@
+
 //Extended from tictactoe
-package connect4
+package connect4;
 /**
  * Tic-Tac-Toe state variables.
  */

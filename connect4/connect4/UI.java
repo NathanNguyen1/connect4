@@ -75,8 +75,10 @@ public class UI {
         }
     }
     
-    public void printInvalidColumn() {
-        System.out.printf(Constants.INVALID_COL);
+    public void printInvalidColumn(int col) {
+        if (col > 7 || col < 1) {
+            System.out.printf(Constants.INVALID_COL);
+        }
     }
     
     public void printInvalidMove(int col) {
@@ -92,6 +94,7 @@ public class UI {
         System.out.printf(Constants.WINNER, getXOrO(state.getWhoseMove()), getPlayerName(state.getWhoseMove(), state.getXName(), state.getOName()));
         System.out.println();
     }
+    
     public void printTieGame() {
         System.out.println(Constants.TIE_GAME);
     }
