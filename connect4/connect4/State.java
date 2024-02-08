@@ -137,7 +137,7 @@ public class State
         this.oName = oName;
     }
 
-    public int getBoardCell(int row, int col) {
+    public int getBoardCell(int row,int col) {
         return this.board[row][col];
     }
 

@@ -25,7 +25,7 @@ public class UI {
     }
     
     public boolean isLegalMove(State state, int col) {
-        return 1 <= col && col <= Constants.BOARD_SIZEX && state.getBoardCell(col, -1) == Constants.BLANK;
+        return 1 <= col && col <= Constants.BOARD_SIZEX && state.getBoardCell(col, 1) == Constants.BLANK;
     }
     
     public String promptForName(String player) {
@@ -35,8 +35,8 @@ public class UI {
     
     public int getMoveCol(int whoseMove, String xName, String oName) {
         int col = 0;
-        while (col <= 0 || col >= 4) {
-            if (col < 0 || col > 3) {
+        while (col <= 1 || col >= 7) {
+            if (col < 1 || col > 7) {
                 System.out.println(Constants.INVALID_COL);
             }
             try {
@@ -76,9 +76,7 @@ public class UI {
     }
     
     public void printInvalidColumn(int col) {
-        if (col > 7 || col < 1) {
-            System.out.printf(Constants.INVALID_COL);
-        }
+        System.out.printf(Constants.INVALID_COL);
     }
     
     public void printInvalidMove(int col) {
