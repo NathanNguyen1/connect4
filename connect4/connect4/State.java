@@ -1,4 +1,4 @@
-
+//isWinner method pasted from the GPT
 //Extended from tictactoe
 package connect4;
 /**
@@ -11,87 +11,62 @@ public class State
     private String xName = "";
     private String oName = "";
     private int[][] board = new int[Constants.BOARD_SIZEX][Constants.BOARD_SIZEY];
-
+    
     public boolean isWinner() {
-        int total;
-        for (int row=0; row<Constants.BOARD_SIZEX; row++) {
-            total = getBoardCell(row, 0) + getBoardCell(row,1) + getBoardCell(row,2) + getBoardCell(row, 3);
-            if (total == -4 || total == 4) return true;
+             // Check rows
+        for (int row = 0; row < Constants.BOARD_SIZEX; row++) {
+            for (int col = 0; col <= Constants.BOARD_SIZEY - 4; col++) {
+                int player = getBoardCell(row, col);
+                if (player != Constants.BLANK &&
+                    player == getBoardCell(row, col + 1) &&
+                    player == getBoardCell(row, col + 2) &&
+                    player == getBoardCell(row, col + 3)) {
+                    return true;
+                }
+            }
         }
-        for (int row=1; row<Constants.BOARD_SIZEX; row++) {
-            total = getBoardCell(row, 1) + getBoardCell(row,2) + getBoardCell(row,3) + getBoardCell(row, 4);
-            if (total == -4 || total == 4) return true;
+    
+        // Check columns
+        for (int col = 0; col < Constants.BOARD_SIZEY; col++) {
+            for (int row = 0; row <= Constants.BOARD_SIZEX - 4; row++) {
+                int player = getBoardCell(row, col);
+                if (player != Constants.BLANK &&
+                    player == getBoardCell(row + 1, col) &&
+                    player == getBoardCell(row + 2, col) &&
+                    player == getBoardCell(row + 3, col)) {
+                    return true;
+                }
+            }
         }
-        for (int row=2; row<Constants.BOARD_SIZEX; row++) {
-            total = getBoardCell(row, 2) + getBoardCell(row,3) + getBoardCell(row,4) + getBoardCell(row, 5);
-            if (total == -4 || total == 4) return true;
+    
+        // Check diagonals (top-left to bottom-right)
+        for (int row = 0; row <= Constants.BOARD_SIZEX - 4; row++) {
+            for (int col = 0; col <= Constants.BOARD_SIZEY - 4; col++) {
+                int player = getBoardCell(row, col);
+                if (player != Constants.BLANK &&
+                    player == getBoardCell(row + 1, col + 1) &&
+                    player == getBoardCell(row + 2, col + 2) &&
+                    player == getBoardCell(row + 3, col + 3)) {
+                    return true;
+                }
+            }
         }
-        for (int col=3; col<Constants.BOARD_SIZEX; col++) {
-            total = getBoardCell(3, col) + getBoardCell(5, col) + getBoardCell(5, col) + getBoardCell(6, col);
-            if (total == -4 || total == 4) return true;
+    
+        // Check diagonals (bottom-left to top-right)
+        for (int row = 3; row < Constants.BOARD_SIZEX; row++) {
+            for (int col = 0; col <= Constants.BOARD_SIZEY - 4; col++) {
+                int player = getBoardCell(row, col);
+                if (player != Constants.BLANK &&
+                    player == getBoardCell(row - 1, col + 1) &&
+                    player == getBoardCell(row - 2, col + 2) &&
+                    player == getBoardCell(row - 3, col + 3)) {
+                    return true;
+                }
+            }
         }
-        for (int col=0; col<Constants.BOARD_SIZEY; col++) {
-            total = getBoardCell(0, col) + getBoardCell(1,col) + getBoardCell(2, col) + getBoardCell(3,col);
-            if (total == -4 || total == 4) return true;
-        }
-        for (int col=1; col<Constants.BOARD_SIZEY; col++) {
-            total = getBoardCell(1, col) + getBoardCell(2,col) + getBoardCell(3, col) + getBoardCell(4,col);
-            if (total == -4 || total == 4) return true;
-        }
-        for (int col=2; col<Constants.BOARD_SIZEY; col++) {
-            total = getBoardCell(2, col) + getBoardCell(3,col) + getBoardCell(4, col) + getBoardCell(5,col);
-            if (total == -4 || total == 4) return true;
-        }
-        total = getBoardCell(0,0) + getBoardCell(1,1) + getBoardCell(2,2) + getBoardCell(3,3);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,1) + getBoardCell(1,2) + getBoardCell(2,3) + getBoardCell(3,4);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,2) + getBoardCell(1,3) + getBoardCell(2,4) + getBoardCell(3,5);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,3) + getBoardCell(1,4) + getBoardCell(2,5) + getBoardCell(3,6);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,6) + getBoardCell(1,5) + getBoardCell(2,4) + getBoardCell(3,3);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,5) + getBoardCell(1,4) + getBoardCell(2,3) + getBoardCell(3,2);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,4) + getBoardCell(1,3) + getBoardCell(2,2) + getBoardCell(3,1);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(0,3) + getBoardCell(1,2) + getBoardCell(2,1) + getBoardCell(3,0);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,0) + getBoardCell(2,1) + getBoardCell(3,2) + getBoardCell(4,3);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,1) + getBoardCell(2,2) + getBoardCell(3,3) + getBoardCell(4,4);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,2) + getBoardCell(2,3) + getBoardCell(3,4) + getBoardCell(4,5);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,3) + getBoardCell(2,4) + getBoardCell(3,5) + getBoardCell(4,6);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,6) + getBoardCell(2,5) + getBoardCell(3,4) + getBoardCell(4,3);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,5) + getBoardCell(2,4) + getBoardCell(3,3) + getBoardCell(4,2);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,4) + getBoardCell(2,3) + getBoardCell(3,2) + getBoardCell(4,1);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(1,3) + getBoardCell(2,2) + getBoardCell(3,1) + getBoardCell(4,0);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,0) + getBoardCell(3,1) + getBoardCell(4,2) + getBoardCell(5,3);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,1) + getBoardCell(3,2) + getBoardCell(4,3) + getBoardCell(5,4);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,2) + getBoardCell(3,3) + getBoardCell(4,4) + getBoardCell(5,5);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,3) + getBoardCell(3,4) + getBoardCell(4,5) + getBoardCell(5,6);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,6) + getBoardCell(3,5) + getBoardCell(4,4) + getBoardCell(5,3);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,5) + getBoardCell(3,4) + getBoardCell(4,3) + getBoardCell(5,2);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,4) + getBoardCell(3,3) + getBoardCell(4,2) + getBoardCell(5,1);
-        if (total == -4 || total == 4) return true;
-        total = getBoardCell(2,3) + getBoardCell(3,2) + getBoardCell(4,1) + getBoardCell(5,0);
-        if (total == -4 || total == 4) return true;
+    
         return false;
-        
+    
     }
 
     public boolean isTie() {
@@ -137,14 +112,14 @@ public class State
         this.oName = oName;
     }
 
-    public int getBoardCell(int row,int col) {
+    public int getBoardCell(int row, int col) {
         return this.board[row][col];
     }
 
     public void setBoardCell(int row, int col, int value) {
         this.board[row][col] = value;
     }
-    
+
     public void reset(){
         gameState = Constants.STANDBY;
         board = new int[Constants.BOARD_SIZEX][Constants.BOARD_SIZEY];
