@@ -48,7 +48,7 @@ public class UI {
                 continue;
             }
         }
-        return col;
+        return col-1;
     }
     
     public boolean startNewGame() {
@@ -84,7 +84,7 @@ public class UI {
     }
     
     public void printMove(State state, int col){
-        System.out.printf(Constants.PRINT_MOVE, getXOrO(state.getWhoseMove()), getPlayerName(state.getWhoseMove(), state.getXName(), state.getOName()), col);
+        System.out.printf(Constants.PRINT_MOVE, getXOrO(state.getWhoseMove()), getPlayerName(state.getWhoseMove(), state.getXName(), state.getOName()), col+1);
         System.out.println();
     }
     
