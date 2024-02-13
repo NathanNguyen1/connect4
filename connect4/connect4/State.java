@@ -111,10 +111,6 @@ public class State
     }
 
     public int getBoardCell(int row, int col) {
-        String boardCell = "| %s |";
-        if (boardCell.equals("X") || boardCell.equals("O")){
-            row=row+1;
-        }
         return this.board[row][col];
     }
 

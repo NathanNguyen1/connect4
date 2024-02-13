@@ -35,6 +35,7 @@ public class UI {
     
     public int getMoveCol(int whoseMove, String xName, String oName) {
         int col = 0;
+        int row = 2;
         while (col <= 1 || col >= 7) {
             if (col < 1 || col > 7) {
                 System.out.println(Constants.INVALID_COL);
@@ -46,6 +47,12 @@ public class UI {
                 System.out.println(Constants.INVALID_COL);
                 scanner.next();
                 continue;
+            }
+            if (row == 0) {
+                return row;
+            } else if (row == -1 || row == 1) {
+                row = row + 1;
+                return row;
             }
         }
         return col-1;
