@@ -35,24 +35,17 @@ public class UI {
     
     public int getMoveCol(int whoseMove, String xName, String oName) {
         int col = 0;
-        int row = 2;
-        while (col <= 1 || col >= 7) {
-            if (col < 1 || col > 7) {
-                System.out.println(Constants.INVALID_COL);
-            }
+        while (col < 1 || col > Constants.BOARD_SIZEX) {
+            System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
             try {
-                System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove), getPlayerName(whoseMove, xName, oName));
                 col = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println(Constants.INVALID_COL);
                 scanner.next();
                 continue;
             }
-            if (row == 0) {
-                return row;
-            } else if (row == -1 || row == 1) {
-                row = row + 1;
-                return row;
+            if (col < 1 || col > Constants.BOARD_SIZEX) {
+                System.out.println(Constants.INVALID_COL);
             }
         }
         return col-1;
@@ -76,8 +69,10 @@ public class UI {
     public void printBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
         for (int row = 0; row < Constants.BOARD_SIZEX; row++) {
-            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 0)), getXOrO(state.getBoardCell(row, 1)), getXOrO(state.getBoardCell(row, 2)), getXOrO(state.getBoardCell(row, 3)), getXOrO(state.getBoardCell(row, 4)), getXOrO(state.getBoardCell(row, 5)));
-            System.out.println();
+            for (int col = 0; col < Constants.BOARD_SIZEX; col++) {
+                System.out.print("| " + getXOrO(state.getBoardCell(col, row)) + " ");
+            }
+            System.out.println("|");
             System.out.println(Constants.DIVIDER_STRING);
         }
     }

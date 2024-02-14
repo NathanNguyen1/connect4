@@ -111,7 +111,12 @@ public class State
     }
 
     public int getBoardCell(int row, int col) {
-        return this.board[row][col];
+        if (row >= 0 && row < Constants.BOARD_SIZEX) {
+            if (col >= 0 && col < Constants.BOARD_SIZEY) {
+                return this.board[row][col];
+            }
+        }
+        return 0;
     }
 
     public void setBoardCell(int row, int col, int value) {
