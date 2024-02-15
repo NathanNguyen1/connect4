@@ -68,9 +68,9 @@ public class UI {
     
     public void printBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
-        for (int row = 0; row < Constants.BOARD_SIZEX; row++) {
+        for (int row = 0; row < Constants.BOARD_SIZEY; row++) {
             for (int col = 0; col < Constants.BOARD_SIZEX; col++) {
-                System.out.print("| " + getXOrO(state.getBoardCell(col, row)) + " ");
+                System.out.print("| " + getXOrO(state.getBoardCell(row, col)) + " ");
             }
             System.out.println("|");
             System.out.println(Constants.DIVIDER_STRING);
@@ -89,6 +89,7 @@ public class UI {
         System.out.printf(Constants.PRINT_MOVE, getXOrO(state.getWhoseMove()), getPlayerName(state.getWhoseMove(), state.getXName(), state.getOName()), col+1);
         System.out.println();
     }
+    
     
     public void printWinner(State state) {
         System.out.printf(Constants.WINNER, getXOrO(state.getWhoseMove()), getPlayerName(state.getWhoseMove(), state.getXName(), state.getOName()));
