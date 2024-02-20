@@ -70,7 +70,8 @@ public class UI {
         System.out.println(Constants.DIVIDER_STRING);
         for (int row = 0; row < Constants.BOARD_SIZEY; row++) {
             for (int col = 0; col < Constants.BOARD_SIZEX; col++) {
-                System.out.print("| " + getXOrO(state.getBoardCell(row, col)) + " ");
+                if((col - 5) = -1 || (col - 5) = 1)
+                System.out.print("| " + getXOrO(state.getBoardCell(col, row - 5)) + " ");
             }
             System.out.println("|");
             System.out.println(Constants.DIVIDER_STRING);
