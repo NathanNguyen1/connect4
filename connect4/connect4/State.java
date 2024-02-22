@@ -119,8 +119,14 @@ public class State
         return 0;
     }
 
-    public void setBoardCell(int row, int col, int value) {
-        this.board[row][col] = value;
+    public boolean setBoardCell(int col, int value) {
+        for (int row = Constants.BOARD_SIZEY - 1; row >= 0; row--) {
+            if (board[row][col] == Constants.BLANK) {
+                board[row][col] = value;
+                return true;
+            }
+        }
+        return false;
     }
 
     public void reset(){
