@@ -1,7 +1,8 @@
-//extended from a tictactoe game code
 package connect4;
-import java.util.Scanner;
 
+//extended from a tictactoe game code
+//ChatGPT used in debugging
+import java.util.Scanner;
 public class UI {
     Scanner scanner;
     State state = new State();

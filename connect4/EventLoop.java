@@ -1,4 +1,6 @@
-//extended from tictactoe
+//extended from tictactoe game code
+//ChatGPT used in debugging
+
 package connect4;
 
 public class EventLoop {

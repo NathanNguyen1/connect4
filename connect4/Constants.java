@@ -1,6 +1,7 @@
 package connect4;
-
 // extended from tictactoe game code
+//ChatGPT used in debugging
+
 public class Constants {
     // Valid board size
     public static final int BOARD_SIZEX = 7;

@@ -1,5 +1,5 @@
-//isWinner method pasted from the GPT
-//Extended from tictactoe
+//ChatGPT used in debugging
+//Extended from tictactoe game code
 package connect4;
 /**
  * Tic-Tac-Toe state variables.
