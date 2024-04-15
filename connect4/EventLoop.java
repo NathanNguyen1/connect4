@@ -1,5 +1,5 @@
 //extended from tictactoe game code
-//ChatGPT used in debugging
+//This code was generated using ChatGPT
 
 package connect4;
 
